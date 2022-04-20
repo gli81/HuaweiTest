@@ -2,14 +2,11 @@
 
 class Decimal2Binary:
     def decimal2Binary(self, num:'int') -> 'int':
-        digits = []
-        while num >= 1:
-            digits.append(num % 2)
-            num = num // 2
         ct = 0
-        for digit in digits:
-            if digit == 1:
+        while num >= 1:
+            if num % 2 == 1:
                 ct += 1
+            num = num // 2
         return ct
 
 def main():
