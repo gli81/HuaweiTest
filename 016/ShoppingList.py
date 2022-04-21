@@ -1,12 +1,24 @@
 # -*- coding: utf-8 -*-
 
 class ShoppingList:
-    def shoppingList(self, items: 'dict[int,int]', balance: 'int', count:'int') -> 'int':
+    def shoppingList(self, weight: 'list[int]', value:'list[int]', subs:'list[int]', balance: 'int', count:'int') -> 'int':
         pass
+    
+    def zeroOneBag(self, weight: 'list[int]', value:'list[int]', balance: 'int', count:'int') -> 'int':
+        dp = [[0 for i in range(int(balance / 10))] for i in range(len(weight))]
+        for j in range(len(dp[0])):
+            if j >= weight[0] / 10:
+                dp[0][j] = value[0]
+        for i in range(1, len(dp)):
+            for j in range(1, len(dp[0])):
+                dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - int(weight[i]/10)] + value[i])
+        for i in dp:
+            print(i)
 
 def main():
     test = ShoppingList()
-    print(test.shoppingList({800:2}, 1000, 5))
+    # print(test.shoppingList({800:2}, 1000, 5))
+    print(test.zeroOneBag([800, 400, 300, 400, 500], [2, 5, 5, 3, 2], 1000, 5))
 
 if __name__ == '__main__':
     main()
