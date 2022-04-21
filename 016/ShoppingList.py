@@ -8,22 +8,34 @@ class ShoppingList:
         for num in weight:
             num = int(num / 10)
         ## build a modified 2D array
-        w_list = [[-1 for i in range(3)] for i in range(ct)]
-        v_list = [[-1 for i in range(3)] for i in range(ct)]
+        w_list = [[0 for i in range(3)] for i in range(ct)]
+        v_list = [[0 for i in range(3)] for i in range(ct)]
         for i in range(ct):
-            if subs[i] == 0:
+            if subs[i] == 0: ## not sub
                 w_list[i][0] = weight[i]
                 v_list[i][0] = value[i]
             else:
-                if w_list[subs[i]][1] == -1: ## first subsidiary
-                    w_list[subs[i]][1] = weight[i]
-                    v_list[subs[i]][1] = value[i]
+                if w_list[subs[i] - 1][1] == 0: ## first subsidiary
+                    w_list[subs[i] - 1][1] = weight[i]
+                    v_list[subs[i] - 1][1] = value[i]
                 else: ## second subsidiary
-                    w_list[subs[i]][2] = weight[i]
-                    v_list[subs[i]][2] = value[i]
+                    w_list[subs[i] - 1][2] = weight[i]
+                    v_list[subs[i] - 1][2] = value[i]
+        for item in w_list:
+            try:
+                w_list.remove([0, 0, 0])
+            except:
+                pass
+        for item in v_list:
+            try:
+                v_list.remove([0, 0, 0])
+            except:
+                pass
         print(w_list)
         print(v_list)
-
+        ## dp
+        non_sub_ct = len(w_list)
+        dp = [[0 for i in range(balance)] for j in range(non_sub_ct)]
 
     
     def zeroOneBag(self, weight: 'list[int]', value:'list[int]', balance: 'int') -> 'int':
