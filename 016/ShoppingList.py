@@ -48,10 +48,21 @@ class ShoppingList:
         ans = -1
         for j in range(1, len(dp[0])):
             for i in range(1, len(dp)):
-                dp[i][j] = max(dp[i - 1][j], dp[i - 1][max(0, j - w_list[i][0])] + v_list[i][0],\
-                    dp[i - 1][max(0, j - w_list[i][0] - w_list[i][1])] + v_list[i][0] + v_list[i][1],\
-                        dp[i - 1][max(0, j - w_list[i][0] - w_list[i][2])] + v_list[i][0] + v_list[i][2],\
-                            dp[i - 1][max(0, j - w_list[i][0] - w_list[i][1] - w_list[i][2])] + v_list[i][0] + v_list[i][1] + v_list[i][2])
+                nonsub_price = w_list[i][0]
+                sub1_price = w_list[i][1]
+                sub2_price = w_list[i][2]
+                nonsub_value = v_list[i][0]
+                sub1_value = v_list[i][1]
+                sub2_value = v_list[i][2]
+
+                dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - nonsub_price] + nonsub_value) if j - nonsub_price >= 0 else dp[i - 1][j]
+                if j - nonsub_price - sub1_price >= 0: dp[i][j] = max(dp[i][j], dp[i-1][j-nonsub_price-sub1_price]+nonsub_value+sub1_value)## dp[i][j] already modified last line
+                if j - nonsub_price - sub2_price >= 0: dp[i][j] = max(dp[i][j], dp[i-1][j-nonsub_price-sub2_price]+nonsub_value+sub2_value)## dp[i][j] already modified last line
+                if j-nonsub_price-sub1_price-sub2_price >= 0: dp[i][j] = max(dp[i][j], dp[i-1][j-nonsub_price-sub1_price-sub2_price]+nonsub_value+sub1_value+sub2_value)## put in both sub
+                # dp[i][j] = max(dp[i - 1][j], dp[i - 1][max(0, j - w_list[i][0])] + v_list[i][0],\
+                #     dp[i - 1][max(0, j - w_list[i][0] - w_list[i][1])] + v_list[i][0] + v_list[i][1],\
+                #         dp[i - 1][max(0, j - w_list[i][0] - w_list[i][2])] + v_list[i][0] + v_list[i][2],\
+                #             dp[i - 1][max(0, j - w_list[i][0] - w_list[i][1] - w_list[i][2])] + v_list[i][0] + v_list[i][1] + v_list[i][2])
                 if dp[i][j] > ans:
                     ans = dp[i][j]
         for i in dp:
