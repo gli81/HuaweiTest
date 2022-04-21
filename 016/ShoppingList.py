@@ -31,12 +31,12 @@ class ShoppingList:
                 v_list.remove([0, 0, 0])
             except:
                 pass
-        # print(w_list)
-        # print(v_list)
+        print(w_list)
+        print(v_list)
         ## dp
         non_sub_ct = len(w_list)
-        dp = [[0 for i in range(balance)] for j in range(non_sub_ct)]
-        for j in range(balance):
+        dp = [[0 for j in range(balance + 1)] for i in range(non_sub_ct)]
+        for j in range(balance + 1):
             if j >= sum(w_list[0]): ## all
                 dp[0][j] = sum(v_list[0])
             elif j >= w_list[0][0] + w_list[0][1]: ## nonsub & first sub
@@ -48,10 +48,10 @@ class ShoppingList:
         ans = -1
         for j in range(1, len(dp[0])):
             for i in range(1, len(dp)):
-                dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - w_list[i][0]] + v_list[i][0],\
-                    dp[i - 1][j - w_list[i][0] - w_list[i][1]] + v_list[i][0] + v_list[i][1],\
-                        dp[i - 1][j - w_list[i][0] - w_list[i][2]] + v_list[i][0] + v_list[i][2],\
-                            dp[i - 1][j - w_list[i][0] - w_list[i][1] - w_list[i][2]] + v_list[i][0] + v_list[i][1] + v_list[i][2])
+                dp[i][j] = max(dp[i - 1][j], dp[i - 1][max(0, j - w_list[i][0])] + v_list[i][0],\
+                    dp[i - 1][max(0, j - w_list[i][0] - w_list[i][1])] + v_list[i][0] + v_list[i][1],\
+                        dp[i - 1][max(0, j - w_list[i][0] - w_list[i][2])] + v_list[i][0] + v_list[i][2],\
+                            dp[i - 1][max(0, j - w_list[i][0] - w_list[i][1] - w_list[i][2])] + v_list[i][0] + v_list[i][1] + v_list[i][2])
                 if dp[i][j] > ans:
                     ans = dp[i][j]
         for i in dp:
