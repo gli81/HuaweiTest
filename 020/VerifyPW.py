@@ -23,7 +23,7 @@ class VerifyPW:
         substring = []
         for i in range(len(line) - 2):
             check = line[i : i + 3]
-            print(check)
+            # print(check)
             if check in substring[:-2]: return True
             else: substring.append(check)
         return False
