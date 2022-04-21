@@ -37,7 +37,7 @@ class ShoppingList:
         non_sub_ct = len(w_list)
         dp = [[0 for i in range(balance)] for j in range(non_sub_ct)]
         for j in range(balance):
-            if j >= sum(w_list[0]):
+            if j >= sum(w_list[0]): ## all
                 dp[0][j] = sum(v_list[0])
             elif j >= w_list[0][0] + w_list[0][1]: ## nonsub & first sub
                 dp[0][j] = v_list[0][0] + v_list[0][1]
@@ -45,7 +45,18 @@ class ShoppingList:
                 dp[0][j] = v_list[0][0] + v_list[0][2]
             elif j >= w_list[0][0]: ## nonsub only
                 dp[0][j] = v_list[0][0]
-        print(dp)
+        ans = -1
+        for j in range(1, len(dp[0])):
+            for i in range(1, len(dp)):
+                dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - w_list[i][0]] + v_list[i][0],\
+                    dp[i - 1][j - w_list[i][0] - w_list[i][1]] + v_list[i][0] + v_list[i][1],\
+                        dp[i - 1][j - w_list[i][0] - w_list[i][2]] + v_list[i][0] + v_list[i][2],\
+                            dp[i - 1][j - w_list[i][0] - w_list[i][1] - w_list[i][2]] + v_list[i][0] + v_list[i][1] + v_list[i][2])
+                if dp[i][j] > ans:
+                    ans = dp[i][j]
+        for i in dp:
+            print(i)
+        return ans
 
     
     def zeroOneBag(self, weight: 'list[int]', value:'list[int]', balance: 'int') -> 'int':
@@ -63,6 +74,7 @@ class ShoppingList:
 
 def main():
     test = ShoppingList()
+    print(test.shoppingList([20, 20, 10, 10, 10], [3, 3, 3, 2, 1], [5, 5, 0, 0, 0], 50))
     print(test.shoppingList([800, 400, 300, 400, 500], [2, 5, 5, 3, 2], [0, 1, 1, 0, 0], 1000))
     # print(test.zeroOneBag([800, 400, 300, 400, 500], [2, 5, 5, 3, 2], 1000))
 
