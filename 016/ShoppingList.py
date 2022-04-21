@@ -12,14 +12,14 @@ class ShoppingList:
         v_list = [[0 for i in range(3)] for i in range(ct)]
         for i in range(ct):
             if subs[i] == 0: ## not sub
-                w_list[i][0] = weight[i]
+                w_list[i][0] = int(weight[i] / 10)
                 v_list[i][0] = value[i]
             else:
                 if w_list[subs[i] - 1][1] == 0: ## first subsidiary
-                    w_list[subs[i] - 1][1] = weight[i]
+                    w_list[subs[i] - 1][1] = int(weight[i] / 10)
                     v_list[subs[i] - 1][1] = value[i]
                 else: ## second subsidiary
-                    w_list[subs[i] - 1][2] = weight[i]
+                    w_list[subs[i] - 1][2] = int(weight[i] / 10)
                     v_list[subs[i] - 1][2] = value[i]
         for item in w_list:
             try:
@@ -31,11 +31,21 @@ class ShoppingList:
                 v_list.remove([0, 0, 0])
             except:
                 pass
-        print(w_list)
-        print(v_list)
+        # print(w_list)
+        # print(v_list)
         ## dp
         non_sub_ct = len(w_list)
         dp = [[0 for i in range(balance)] for j in range(non_sub_ct)]
+        for j in range(balance):
+            if j >= sum(w_list[0]):
+                dp[0][j] = sum(v_list[0])
+            elif j >= w_list[0][0] + w_list[0][1]: ## nonsub & first sub
+                dp[0][j] = v_list[0][0] + v_list[0][1]
+            elif j >= w_list[0][0] + w_list[0][2]: ## nonsub & second sub
+                dp[0][j] = v_list[0][0] + v_list[0][2]
+            elif j >= w_list[0][0]: ## nonsub only
+                dp[0][j] = v_list[0][0]
+        print(dp)
 
     
     def zeroOneBag(self, weight: 'list[int]', value:'list[int]', balance: 'int') -> 'int':
