@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class ShoppingList:
-    def shoppingList(self, weight: 'list[int]', value:'list[int]', subs:'list[int]', balance: 'int', count:'int') -> 'int':
+    def shoppingList(self, weight: 'list[int]', value: 'list[int]', subs: 'list[int]', balance: 'int', count: 'int') -> 'int':
         pass
     
     def zeroOneBag(self, weight: 'list[int]', value:'list[int]', balance: 'int', count:'int') -> 'int':
@@ -9,11 +9,13 @@ class ShoppingList:
         for j in range(len(dp[0])):
             if j >= weight[0] / 10:
                 dp[0][j] = value[0]
+        ans = 0
         for i in range(1, len(dp)):
             for j in range(1, len(dp[0])):
                 dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - int(weight[i]/10)] + value[i])
-        for i in dp:
-            print(i)
+                if dp[i][j] > ans:
+                    ans = dp[i][j]
+        return ans
 
 def main():
     test = ShoppingList()
