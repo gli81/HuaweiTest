@@ -19,7 +19,7 @@ class ShoppingList:
 
 def main():
     test = ShoppingList()
-    # print(test.shoppingList({800:2}, 1000, 5))
+    print(test.shoppingList([800, 400, 300, 400, 500], [2, 5, 5, 3, 2], [0, 1, 1, 0, 0], 1000, 5))
     print(test.zeroOneBag([800, 400, 300, 400, 500], [2, 5, 5, 3, 2], 1000, 5))
 
 if __name__ == '__main__':
