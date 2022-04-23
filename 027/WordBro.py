@@ -7,7 +7,7 @@ class WordBro():
 		og_word = inp[-2]
 		num = inp[-1]
 		words = line[1:-2]
-		words[0] = 'changed'
+		# words[0] = 'changed'
 		# print(line)
 		# print(n, words, og_word, num)
 		ct = 0
