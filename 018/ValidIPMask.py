@@ -11,13 +11,13 @@ class ValidIPMask():
             mask_str = ''.join(list(map(self.decimal2Binary, mask)))
             # print(ip)
             # print(self.validMask(mask_str))
-            if self.validMask(mask_str):
+            ## do nothing category
+            if ip[0] in [0, 127]:
+                ans = ''
+            elif self.validMask(mask_str):
                 ## valid mask, check IP then
-                ## do nothing category
-                if ip[0] in [0, 127]:
-                    ans = ''
                 ## category A
-                elif ip[0] in range(1, 127):
+                if ip[0] in range(1, 127):
                     ans = 'A'
                 elif ip[0] in range(128, 192):
                     ans = 'B'
