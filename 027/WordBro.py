@@ -17,7 +17,7 @@ class WordBro():
 				ct += 1
 				bro_words.append(word)
 		if num <= len(bro_words):
-			return [str(ct), bro_words[num - 1]]
+			return [str(ct), sorted(bro_words)[num - 1]]
 		else: return [str(ct)]
 	def isWordBro(self, og_word: 'str', check_word: 'str') -> 'bool':
 		return sorted(og_word) == sorted(check_word) and not og_word == check_word
