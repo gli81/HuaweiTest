@@ -49,7 +49,7 @@ class ValidIPMask():
                 ans += '0'
             num = num // 2
         return '0' * (8-len(ans)) + ans[::-1]
-    def validMask(self, mask: 'str'):
+    def validMask(self, mask: 'str') -> 'bool':
         if mask[0] == '0': return False
         first_zero_index = -1
         for i in range(len(mask)):
@@ -60,8 +60,6 @@ class ValidIPMask():
         for char in mask[first_zero_index + 1 : len(mask)]:
             if char == '1': return False
         return True
-
-
 
 def main():
     test = ValidIPMask()
