@@ -9,7 +9,9 @@ class PrimeCompanion():
                 evens.append(num)
             else:
                 odds.append(num)
-        
+        ct = 0
+        for i in odds:
+            pass
     def isPrime(self, num: 'int'):
         if num == 1:
             return False
