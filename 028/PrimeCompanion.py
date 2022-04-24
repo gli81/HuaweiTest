@@ -2,7 +2,14 @@
 
 class PrimeCompanion():
     def primeCompanion(self, nums: 'list[int]') -> 'int':
-        pass
+        evens = []
+        odds = []
+        for num in nums:
+            if num % 2 == 0:
+                evens.append(num)
+            else:
+                odds.append(num)
+        
     def isPrime(self, num: 'int'):
         if num == 1:
             return False
