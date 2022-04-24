@@ -13,7 +13,6 @@ class DeleteChar():
                 ans += char
         return ans
 
-
 def main():
     test = DeleteChar()
     print(test.deleteChar("aabcddd"))

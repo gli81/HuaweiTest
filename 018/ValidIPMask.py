@@ -41,7 +41,7 @@ class ValidIPMask():
 
     def decimal2Binary(self, num: 'int') -> 'str':
         ans = ''
-        if num == 0: return "0"
+        if num == 0: return "00000000"
         while num > 0:
             if num % 2 == 1:
                 ans += '1'
