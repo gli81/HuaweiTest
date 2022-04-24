@@ -6,7 +6,9 @@ class IntergerIP():
         return '.'.join(list(map(str, map(self.bin2Dec, [b[0:8], b[8:16], b[16:24], b[24:32]]))))
 
     def ip2Integer(self, ip: 'str') -> 'str':
-        pass
+        ip_list = list(map(self.dec2Bin, map(int, ip.split('.'))))
+        num = self.bin2Dec(''.join(ip_list))
+        return num
 
     def dec2Bin(self, num: 'int', long: 'bool' = False) -> 'str':
         ans = ''
@@ -30,6 +32,7 @@ class IntergerIP():
 def main():
     test = IntergerIP()
     print(test.integer2IP('167773121'))
+    print(test.ip2Integer('10.0.3.193'))
     # print(test.dec2Bin(255))
     # print(test.dec2Bin(0))
     # print(test.dec2Bin(252))
