@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class Weight():
-    def weight(self, w: 'list[int]', n: 'list[int]') -> 'set[int]':
+    def weight(self, w: 'list[int]', n: 'list[int]') -> 'list[int]':
 
         ans = [0, ]
         for i in range(len(w)):
