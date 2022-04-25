@@ -5,6 +5,7 @@ import collections
 class Maze():
     def maze(self, m: 'list[list[str]]', pre: 'list[list[tuple]]', end_x: 'int', end_y: 'int') -> 'list[list[tuple]]':
         ## working in the mathematical coordinate, not in the collection coordinate
+        ## reference: https://python.iitter.com/other/271061.html
         q = collections.deque([(end_x, end_y)])
         d = [[0, -1], [0, 1], [1, 0], [-1, 0]]
         pre[end_y][end_x] = (0, 0)
