@@ -18,7 +18,6 @@ class Sudoku():
                     return False
         return True
 
-
 def main():
     test = Sudoku()
     board = [
