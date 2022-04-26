@@ -19,7 +19,7 @@ class DeleteNode():
 def main():
     test = DeleteNode()
     print(test.deleteNode())
-    print(DeleteNode(1, DeleteNode(1, None)))
+    print(DeleteNode(1, DeleteNode(1, DeleteNode(2, None))))
 
 if __name__ == "__main__":
     main()
