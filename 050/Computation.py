@@ -131,6 +131,7 @@ def main():
     test = Computation()
     print(test.computationEval("3+2*{1+2*[-4/(8-6)+7]}"))
     print(test.computationStack("3+2*{1+2*[-4/(8-6)+7]}"))
+    print(test.computationStack("400+5"))
 
 if __name__ == "__main__":
     main()
