@@ -32,13 +32,29 @@ class Egyptian:
         return ans[:-1]
     
     def egyptian2(self, num: "str") -> "str":
-        pass
+        '''
+        https://blog.nowcoder.net/n/a0675625692c4be3b9028de97231e6eb?f=comment
+        '''
+        a, b = map(int, num.split('/'))
+        a *= 10
+        b *= 10
+        res = []
+        while a:
+            for i in range(a, 0, -1):
+                if b % i == 0:
+                    res.append(f"1/{int(b/i)}")
+                    a -= i
+                    break
+        return '+'.join(res)
 
 def main():
     test = Egyptian()
     print(test.egyptian("8/11"))
     print(test.egyptian("2/4"))
-    print(test.egyptian("17/73"))
+    # print(test.egyptian("17/73"))
+    print(test.egyptian2("8/11"))
+    print(test.egyptian2("2/4"))
+    print(test.egyptian2("17/73"))
 
 if __name__ == "__main__":
     main()
