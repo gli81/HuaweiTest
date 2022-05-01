@@ -21,8 +21,8 @@ class Egyptian:
                 #     b = int(b / a)
                 #     a = int(a / a)
                 while a % 2 == 0 and b % 2 == 0:
-                    a = a / 2
-                    b = b / 2
+                    a = int(a / 2)
+                    b = int(b / 2)
                 for n in range(3, b, 2):
                     if a % n == 0 and b % n == 0:
                         b = int(b / n)

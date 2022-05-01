@@ -7,6 +7,7 @@ class Redraiment:
             for j in range(i):
                 if nums[j] < nums[i]:
                     dp[i] = max(dp[i], dp[j] + 1)
+                    ## not comparing to the one before, comparing to all nums samller than current one
             # print(dp)
         return max(dp)
         
