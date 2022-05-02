@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class Renminbi:
-    def renminbi(self, num: "double") -> "str":
+    def renminbi(self, num: "float") -> "str":
         ch = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖']
         ans = ''
         ## deal with decimal
@@ -14,7 +14,7 @@ class Renminbi:
             if num * 10 % 10 != 0:
                 ans = ch[int(num * 10 % 10)] + '角' + ans
         num = int(num)
-        
+        print(num)
         return ans
 
 def main():
