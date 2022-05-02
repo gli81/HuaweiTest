@@ -2,7 +2,16 @@
 
 class Vote:
     def vote(self, candidate: "list[str]", v: "list[str]") -> "dict[str, int]":
-        pass
+        ans = {}
+        for cand in candidate:
+            ans[cand] = 0
+        ans["Invalid"] = 0
+        for i in v:
+            if i in candidate:
+                ans[i] += 1
+            else:
+                ans["Invalid"] += 1
+        return ans
 
 def main():
     test = Vote()
