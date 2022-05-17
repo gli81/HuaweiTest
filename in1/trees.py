@@ -22,10 +22,10 @@ class BinaryTree:
             t.__rightChild = self.__rightChild
             self.__rightChild = t
 
-    def getRightChild(self) -> "trees.BinaryTree":
+    def getRightChild(self) -> "BinaryTree":
         return self.__rightChild
 
-    def getLeftChild(self) -> "trees.BinaryTree":
+    def getLeftChild(self) -> "BinaryTree":
         return self.__leftChild
 
     def setRootVal(self, obj):
