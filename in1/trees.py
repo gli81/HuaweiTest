@@ -4,7 +4,7 @@ class BinaryTree:
     def __init__(self, rootObj, leftChild = None, rightChild = None):
         self.__key = rootObj
         self.__leftChild = leftChild
-        self.__rightChile = rightChild
+        self.__rightChild = rightChild
 
     def insertLeft(self, newNode) -> "None":
         if self.__leftChild == None:
@@ -23,10 +23,10 @@ class BinaryTree:
             self.__rightChild = t
 
     def getRightChild(self) -> "trees.BinaryTree":
-        return self.rightChild
+        return self.__rightChild
 
     def getLeftChild(self) -> "trees.BinaryTree":
-        return self.leftChild
+        return self.__leftChild
 
     def setRootVal(self, obj):
         self.__key = obj

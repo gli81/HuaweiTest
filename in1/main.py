@@ -86,7 +86,16 @@ def main():
     print("Binary Tree Traversal")
     print("Preorder")
     tc1 = trees.BinaryTree('a')
+    tc1.insertLeft('c')
     tc1.insertLeft('b')
+    tc1.insertRight('e')
+    tc1.insertRight('d')
+    # print(tc1.getLeftChild().getRootVal())
+    tc1.preorder()
+    print("Inorder")
+    tc1.inorder()
+    print("Postorder")
+    tc1.postorder()
 
 
 if __name__ == "__main__":
