@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import linear
+import trees
 
 
 
@@ -83,6 +84,11 @@ def main():
     quickSort(tc2)
     print(tc2)
     print("=" * 100)
+    print("Binary Tree Traversal")
+    print("Preorder")
+    tc1 = trees.BinaryTree('a')
+    tc1.insertLeft('b')
+    
 
 if __name__ == "__main__":
     main()
