@@ -30,8 +30,25 @@ def quickSortHelper(c, first, last):
         ## recursively sort the latter half
         quickSortHelper(c, split_point + 1, last)
 
-def partition(c, first, last):
-    pass
+def partition(c, first, last) -> "int":
+    pivot = first
+    left = first
+    right = last
+    while left < right:
+        while left < right and c[right] >= c[pivot]:
+            ## if c[right] keeps being greater than c[pivot], right pointer moves left until go beyond the other pointer
+            right -= 1
+        while left < right and c[left] <= c[pivot]:
+            ## if c[left] keeps being smaller than c[pivot], left pointer moves right until go beyond the other pointer
+            left += 1
+        if left < right: ## find one smaller than pivot, and one larger than pivot, smaller one left side of larger one
+            ## swap
+            temp = c[left]
+            c[left] = c[right]
+            c[right] = temp
+    c[left], c[pivot] = c[pivot], c[left]
+    ## tell where the pivot is now
+    return left
 
 def main():
     stk1 = linear.Stack()
@@ -57,7 +74,14 @@ def main():
     print("=" * 100)
     print("Merge Sort")
     print("=" * 100)
-    print("Quick Sort")
+    print("Quick Sort [25, 65, 897, 23, 765,1234, 897, 23, 67]")
+    tc1 = [25, 65, 897, 23, 765,1234, 897, 23, 67]
+    quickSort(tc1)
+    print(tc1)
+    print("Quick Sort [-1, 1, 3]")
+    tc2 = [-1, 1, 3]
+    quickSort(tc2)
+    print(tc2)
     print("=" * 100)
 
 if __name__ == "__main__":
