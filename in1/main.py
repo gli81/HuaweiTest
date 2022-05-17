@@ -2,8 +2,7 @@
 
 import linear
 import trees
-
-
+import graph
 
 def binarySearch():
     pass
@@ -88,7 +87,7 @@ def main():
     print("Preorder")
     tc1 = trees.BinaryTree('a')
     tc1.insertLeft('b')
-    
+
 
 if __name__ == "__main__":
     main()
