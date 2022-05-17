@@ -38,3 +38,25 @@ class Queue():
 
     def isEmpty(self) -> "bool":
         return self.size() == 0
+
+class Deque:
+    def __init__(self):
+        self.__items = list()
+    
+    def addFront(self, item) -> "None":
+        self.__items.insert(0, item)
+    
+    def addRear(self, item) -> "None":
+        self.__items.append(item)
+    
+    def size(self) -> "int":
+        return len(self.__items)
+
+    def isEmpty(self) -> "bool":
+        return self.size() == 0
+
+    def removeFront(self):
+        return self.__items.pop(0)
+    
+    def removeRear(self):
+        return self.__items.pop()

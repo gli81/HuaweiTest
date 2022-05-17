@@ -2,6 +2,12 @@
 
 import linear
 
+
+
+def binarySearch():
+    pass
+
+
 def main():
     stk1 = linear.Stack()
     print(stk1.isEmpty())
