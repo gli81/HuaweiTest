@@ -39,6 +39,9 @@ class Queue():
     def isEmpty(self) -> "bool":
         return self.size() == 0
 
+    def __str__(self):
+        return ", ".join(map(str, self.__elements))
+
 class Deque:
     def __init__(self):
         self.__items = list()
@@ -60,3 +63,6 @@ class Deque:
     
     def removeRear(self):
         return self.__items.pop()
+
+    def __str__(self):
+        return ", ".join(map(str, self.__elements))

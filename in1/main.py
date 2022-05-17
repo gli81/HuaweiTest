@@ -18,7 +18,19 @@ def bubbleSort(c: "list") -> "None":
 def mergeSort():
     pass
 
-def quickSort():
+def quickSort(c):
+    quickSortHelper(c, 0, len(c) - 1)
+
+def quickSortHelper(c, first, last):
+    if first < last:
+        ## find splitting point
+        split_point = partition(c, first, last)
+        ## recursively sort the first half
+        quickSortHelper(c, first, split_point - 1)
+        ## recursively sort the latter half
+        quickSortHelper(c, split_point + 1, last)
+
+def partition(c, first, last):
     pass
 
 def main():
