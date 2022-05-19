@@ -52,3 +52,9 @@ class Graph:
     
     def __iter__(self):
         return iter(self.vertList.values())
+
+def bfs(g: "Graph"):
+    pass
+
+def dfs(g: "Graph"):
+    pass
