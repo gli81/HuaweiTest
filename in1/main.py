@@ -92,10 +92,17 @@ def main():
     tc1.insertRight('d')
     # print(tc1.getLeftChild().getRootVal())
     tc1.preorder()
+    print("=" * 100)
     print("Inorder")
     tc1.inorder()
+    print("=" * 100)
     print("Postorder")
     tc1.postorder()
+    print("=" * 100)
+    print("Graph")
+    vt1 = graph.Vertex("Vert A")
+    vt1.addNeighbor(graph.Vertex("Vert B"))
+    print(vt1)
 
 
 if __name__ == "__main__":
