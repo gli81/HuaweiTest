@@ -57,3 +57,28 @@ class BinaryTree:
         if self.getRightChild():
             self.getRightChild().postorder()
         print(self.getRootVal())
+
+class BinaryHeap():
+    '''
+    the heap is represented by a list\n
+    each node has a index x, its left child's index would be 2x, right child's index would be 2x+1\n
+    a node with index y has a parent with index y//2 \n
+    (due to complete binary tree's property)\n
+    compelete binary tree: leaves only at bottom level, or last but second level\n
+    every internal node has two children, only one exception
+    '''
+    def __init__(self):
+        self.__heapList: "list[int]" = [0]
+        self.__currentSize: "int" = 0
+    
+    def insert(self, key: "int") -> "None":
+        self.__heapList.append(key)
+        self.__currentSize += 1
+        self.__percUp(self.__currentSize)
+
+    def __percUp(self, i: "int") -> "None":
+        pass
+
+    
+
+
