@@ -103,6 +103,12 @@ def main():
     vt1 = graph.Vertex("Vert A")
     vt1.addNeighbor(graph.Vertex("Vert B"))
     print(vt1)
+    print("=" * 100)
+    g1 = graph.Graph()
+    g1.addEdge("Vert A", "Vert B")
+    for vert in g1:
+        print(vert)
+    print(g1.getVertices())
 
 
 if __name__ == "__main__":

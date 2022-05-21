@@ -47,7 +47,7 @@ class Graph:
             nv = self.addVertex(ending)
         self.vertList[starting].addNeighbor(self.vertList[ending], weight)
     
-    def getVertices(self):
+    def getVertices(self) -> "list":
         return self.vertList.keys()
     
     def __iter__(self):
