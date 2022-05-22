@@ -77,8 +77,22 @@ class BinaryHeap():
         self.__percUp(self.__currentSize)
 
     def __percUp(self, i: "int") -> "None":
+        while i > 1:
+            if self.__heapList[i] < self.__heapList[i // 2]:
+                self.__heapList[i], self.__heapList[i // 2] = self.__heapList[i // 2], self.__heapList[i]
+            i = i // 2
+
+    def delMin(self) -> "None":
         pass
 
+    def __percDown(self, i: "int") -> "None":
+        pass
+
+    def __minChild(self, i: "int") -> "int":
+        pass
+
+    def __str__(self) -> "str":
+        return str(self.__heapList[1:])
     
 
 
