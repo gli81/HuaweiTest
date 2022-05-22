@@ -67,9 +67,9 @@ class BinaryHeap():
     compelete binary tree: leaves only at bottom level, or last but second level\n
     every internal node has two children, only one exception
     '''
-    def __init__(self):
-        self.__heapList: "list[int]" = [0]
-        self.__currentSize: "int" = 0
+    def __init__(self, heapList = [0], currentSize = 0):
+        self.__heapList: "list[int]" = heapList
+        self.__currentSize: "int" = currentSize
     
     def insert(self, key: "int") -> "None":
         self.__heapList.append(key)
@@ -91,10 +91,24 @@ class BinaryHeap():
         return ans
 
     def __percDown(self, i: "int") -> "None":
-        pass
+        while i * 2 <= self.__currentSize: ## current node has at least one child
+            min_child_index = self.__minChild(i)
+            if self.__heapList[i] > self.__heapList[min_child_index]:
+                self.__heapList[i], self.__heapList[min_child_index] = self.__heapList[min_child_index], self.__heapList[i]
+            i = min_child_index
 
     def __minChild(self, i: "int") -> "int":
-        pass
+        ## only one child
+        if i * 2 + 1 > self.__currentSize:
+            return i * 2
+        else:
+            return i * 2 if self.__heapList[i * 2] <= self.__heapList[i * 2 + 1] else i * 2 + 1
+
+    @staticmethod
+    def buildHeap(alist: "list[int]") -> "BinaryHeap":
+        ## start from the last node's parent
+        first = len(alist) // 2
+        
 
     def __str__(self) -> "str":
         return str(self.__heapList[1:])
