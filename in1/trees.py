@@ -107,8 +107,14 @@ class BinaryHeap():
     @staticmethod
     def buildHeap(alist: "list[int]") -> "BinaryHeap":
         ## start from the last node's parent
-        first = len(alist) // 2
-        
+        i = len(alist) // 2
+        sz = len(alist)
+        hlist = [0] + alist[:]
+        bh = BinaryHeap(hlist, sz)
+        while i > 0:
+            bh.__percDown(i)
+            i -= 1
+        return bh
 
     def __str__(self) -> "str":
         return str(self.__heapList[1:])
