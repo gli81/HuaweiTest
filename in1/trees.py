@@ -83,7 +83,12 @@ class BinaryHeap():
             i = i // 2
 
     def delMin(self) -> "None":
-        pass
+        ans = self.__heapList[1]
+        self.__heapList[1] = self.__heapList[self.__currentSize]
+        self.__heapList.pop()
+        self.__currentSize -= 1
+        self.__percDown(1)  ## move the last one to the top, then sink it to the proper position
+        return ans
 
     def __percDown(self, i: "int") -> "None":
         pass
