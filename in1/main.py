@@ -130,6 +130,5 @@ def main():
         print(vert)
     print(g1.getVertices())
 
-
 if __name__ == "__main__":
     main()

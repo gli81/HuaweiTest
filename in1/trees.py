@@ -119,5 +119,11 @@ class BinaryHeap():
     def __str__(self) -> "str":
         return str(self.__heapList[1:])
     
+class BinarySearchTree:
+    def __init__(self):
+        pass
 
-
+class TreeNode:
+    def __init__(self, key, val, left = None, right = None, parent = None):
+        pass
+    
