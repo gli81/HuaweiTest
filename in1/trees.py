@@ -125,5 +125,58 @@ class BinarySearchTree:
 
 class TreeNode:
     def __init__(self, key, val, left = None, right = None, parent = None):
-        pass
+        self.__key = key
+        self.__val = val
+        self.__left = left
+        self.__right = right
+        self.__parent = parent
     
+    def hasLeftChild(self) -> "bool":
+        return self.__left
+
+    def hasRightChild(self) -> "bool":
+        return self.__right
+
+    def getLeftChild(self) -> "TreeNode":
+        return self.__left
+    
+    def getRightChild(self) -> "TreeNode":
+        return self.__right
+    
+    def getParent(self) -> "TreeNode":
+        return self.__parent
+    
+    def setLeftChild(self, lc: "TreeNode") -> "None":
+        self.__left = lc
+    
+    def setRightChild(self, rc: "TreeNode") -> "None":
+        self.__right = rc
+    
+    def setParent(self, parent: "TreeNode") -> "None":
+        self.__parent = parent
+    
+    def isLeftChild(self) -> "bool":
+        return self.__parent and self.__parent.getLeftChild() == self
+
+    def isRightChild(self) -> "bool":
+        return self.__parent and self.__parent.getRightChild() == self
+    
+    def isRoot(self) -> "bool":
+        return not self.__parent
+    
+    def hasAnyChildren(self) -> "bool":
+        return self.__right or self.__left
+    
+    def hasBothChildren(self) -> "bool":
+        return self.__right and self.__left
+    
+    def replaceNodeData(self, key, value, lc: "TreeNode", rc: "TreeNode"):
+        self.__key = key
+        self.__val = value
+        self.__left = lc
+        self.__right = rc
+        if self.hasLeftChild():
+            self.__left.setParent(self)
+        if self.hasRightChild():
+            self.__right.setParent(self)
+        
